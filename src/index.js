@@ -37,6 +37,29 @@ io.on('connection', (socket) => {
 
     console.log(`${socket.id} is connected`);
 
+    // Socket events.
+
+    socket.on('done', () => {
+        console.log(`${socket.id} has finished the task!`);
+
+        /*
+
+        // Emit event to all clients.
+
+        socket.broadcast.emit('message', {
+            body: message,
+            from: socket.id
+        });
+
+        */
+    })
+
+    socket.on('check', () => {
+        console.log(`${socket.id} has checked the task!`);
+    })
+
+
+
 });
 
 // Server running.
